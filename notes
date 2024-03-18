@@ -1,0 +1,29 @@
+docker command:
+    1. "docker run -it ubuntu ": Run ubuntu image in interactive mode
+    2. "docker container ls" : List of all docker container 
+    3. "docker images" : all images
+    4. "docker start name" : To start a container
+    5. "docker stop name_container" : To stop a container
+    6. "docker exec name_container ls" : From outside run any command in a container
+    7. "docker exec -it name_container bash" : run a existing container, must be running container
+    8. "docker pull image_name" : it will pull the package from dockerhub
+    9. "docker pull image_name:16.04" : specify the version
+    10. "docker rm id_container" : remove container
+    11. "docker rmi image" : remove image 
+    12. "docker container prune -f" : delete all stop container 
+    13. "docker logs --since 5s id" : to check 5s logs in a container 
+    14. "docker commit -m `msg` id_image image_name:version" : Commit a docker image ("docker run image_name:version")
+    15. "docker image -q" : only Id of all the images 
+    16. "docker rmi $(docker images -q) -f" : delete all images (except the running) 
+
+    --- Docker Port mapping:
+        17. "docker run -it -p 8080:80 nginx" : first port local, second port container port
+
+    --- Environment variable:
+        18. "docker run -it -p 1025:1025 -e key=value -e key=value image_name"
+
+    --- Dockerfile : name the file as "Dockerfile"*
+        FROM ubuntu             #base image
+        CMD ["echo", "hello world"]
+
+        then : "docker build -t myImage:version ." : . means current directory
